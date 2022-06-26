@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title>User binding huifubao</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link href="/css/base.css" rel="stylesheet" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<div class="tophui">
+    <div class="topcont" align="right">huifubao fund platform</div>
+</div>
+<div class="header">
+    <div class="fl"><a href="http://www.heepay.com/"><img src="/images/logo.png" width="169" height="61"/></a></div>
+    <input type="submit" name="button" id="button" value="Search" class="s_button fr"/>
+    <div class="search"><input name="" type="text" class="s_input"/>
+    </div>
+</div>
+
+<div id="main" class="line">
+    <form id="form" action="/userBind/save" method="post">
+        <input type="hidden" th:each="map : ${paramMap}" th:name="${map.key}" th:value="${map.value}"/>
+
+        <div style="padding: 20px 20px">
+            <div class="divTitle">Binding information</div>
+            <div style="padding: 5px 5px">Personal information</div>
+            <table class="gridtable">
+                <tr>
+                    <td width="50%">Name:<span th:text="${paramMap.personalName}"></span></td>
+                    <td>ID type:driver's license</td>
+                </tr>
+                <tr>
+                    <td width="50%">ID number:<span th:text="${paramMap.idCard}"></span></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div style="padding: 5px 5px;margin-top: 30px;">Bank card binding information</div>
+            <table class="gridtable">
+                <tr>
+                    <td width="50%">Card number:<span th:text="${paramMap.bankNo}"></span></td>
+                    <td>Bank name:BofA</td>
+                </tr>
+                <tr>
+                    <td width="50%">phone number:<span th:text="${paramMap.mobile}"></span>&nbsp;&nbsp;<a href="javascript:">Get verification code</a></td>
+                    <td>Verify phone number:<input name="code" class="inputTxt"></td>
+                </tr>
+            </table>
+
+            <div style="padding: 5px 5px;margin-top: 30px;">Set payment password</div>
+            <table class="gridtable">
+                <tr>
+                    <td width="50%">Reset password:<input type="password" name="payPasswd" class="inputTxt" maxlength="9"></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div style="padding: 5px 5px; margin-top: 20px;">
+                <input type="button" id="submitForm" value="Confirm" class="inputSubmit"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="footer">
+    <p class="hui">Address: Los Angeles Phone: +1 000-000-0000</p>
+    <p class="hui">Copyright © 2020 huifubao All Rights Reserved </p>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#submitForm").click(function(){
+            var payPasswd = $("#payPasswd").val();
+            if(payPasswd == '') {
+                alert("Password is required!")
+                return
+            }
+            $("#form").submit();
+        });
+    });
+</script>
+</body>
+</html>

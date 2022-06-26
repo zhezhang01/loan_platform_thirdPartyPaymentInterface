@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<title>User binding huifubao</title>
+	<link rel="icon" href="/images/favicon.ico">
+	<link href="/css/base.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div class="tophui">
+	<div class="topcont" align="right">huifubao fund platform</div>
+</div>
+<div class="header">
+	<div class="fl"><a href="http://www.heepay.com/"><img src="/images/logo.png" width="169" height="61" /></a> </div>
+	<input type="submit" name="button" id="button" value="Search" class="s_button fr" />
+	<div class="search"><input name="" type="text" class="s_input" />
+	</div>
+</div>
+
+<div id="main" class="line">
+	Repayment success<br/>
+	<a th:href="${returnUrl}">Return to the platform</a>
+</div>
+
+<div class="footer">
+	<p class="hui">Address: Los Angeles Phone: +1 000-000-0000</p>
+	<p class="hui">Copyright © 2020 huifubao All Rights Reserved </p>
+</div>
+</body>
+</html>
+
